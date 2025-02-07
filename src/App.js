@@ -19,5 +19,5 @@ app.use(cors({
 app.use(require('./routes/index'));
 
 
-app.listen(8080);
-console.log('Server on port: ', 8080);
+app.listen(3000);
+console.log('Server on port: ', 3000);
