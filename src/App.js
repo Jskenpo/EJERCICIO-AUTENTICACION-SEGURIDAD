@@ -2,10 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+//MemoryStore
+app.use(session({
+    secret: 'mysecret',
+    resave: false,
+    saveUninitialized: true,
+    store: memoryStore
+}));
 
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(keycloak.middleware());
 
 
 // Enable CORS
@@ -19,5 +27,5 @@ app.use(cors({
 app.use(require('./routes/index'));
 
 
-app.listen(8080);
-console.log('Server on port: ', 8080);
+app.listen(3000);
+console.log('Server on port: ', 3000);
