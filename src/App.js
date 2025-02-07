@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -20,5 +19,5 @@ app.use(cors({
 app.use(require('./routes/index'));
 
 
-app.listen(process.env.PORT);
-console.log('Server on port: ', process.env.PORT);
+app.listen(8080);
+console.log('Server on port: ', 8080);
