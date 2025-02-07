@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const session = require('express-session')
+const { keycloak, memoryStore } = require('./keycloak/keycloak.js');
 
 //MemoryStore
 app.use(session({

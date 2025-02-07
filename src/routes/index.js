@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const router = Router();
-const { keycloak } = require('../keycloak-config');
+const { keycloak } = require('../keycloak/keycloak.js');
 
 
 const {GetPublic, GetPrivate, POSTJson} = require('../controllers/index.controllers');
