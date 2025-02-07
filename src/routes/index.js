@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const { GetPublic, GetPrivate, POSTJson } = require('../controllers/index.controllers');
-const { protect } = require('../auth');
+const { protect } = require('../keycloak/keycloak');
 
 // Rutas públicas
 router.get('/public', GetPublic);
