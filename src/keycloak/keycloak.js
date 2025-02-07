@@ -1,16 +1,33 @@
-const session = require('express-session');
-const Keycloak = require('keycloak-connect');
+const { Issuer } = require('openid-client');
 
-const memoryStore = new session.MemoryStore();
+let client; 
 
-const keycloak = new Keycloak({ store: memoryStore }, {
-  clientId: 'api-client',
-  bearerOnly: true,
-  serverUrl: 'http://localhost:8080',
-  realm: 'CybersecurityRealm',
-  credentials: {
-    secret: 'mysecret'
-  }
-});
+async function initOIDC() {
+  const keycloakIssuer = await Issuer.discover('http://localhost:8080/realms/CybersecurityRealm'); 
+  client = new keycloakIssuer.Client({
+    client_id: 'api-client',
+    client_secret: 'mysecret',
+  });
+}
 
-module.exports = { keycloak, memoryStore };
+function protect() {
+  return async (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ error: 'Token no proporcionado' });
+    }
+
+    const token = authHeader.split(' ')[1];
+
+    try {
+      const userInfo = await client.userinfo(token); 
+      req.user = userInfo; 
+      next();
+    } catch (error) {
+      console.error('Error de autenticación:', error.message);
+      return res.status(403).json({ error: 'Token inválido o expirado' });
+    }
+  };
+}
+
+module.exports = { initOIDC, protect };

@@ -1,19 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const router = require('./routes/index');
+const {initOIDC} = require('./keycloak/keycloak');
 
-//MemoryStore
-app.use(session({
-    secret: 'mysecret',
-    resave: false,
-    saveUninitialized: true,
-    store: memoryStore
-}));
 
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(keycloak.middleware());
 
 
 // Enable CORS
@@ -23,9 +17,12 @@ app.use(cors({
 }));
 
 
-//routes
-app.use(require('./routes/index'));
-
-
-app.listen(3000);
-console.log('Server on port: ', 3000);
+initOIDC().then(() => {
+    app.use('/api', router);
+  
+    app.listen(3000, () => {
+      console.log('Servidor corriendo en http://localhost:3000');
+    });
+  }).catch(err => {
+    console.error('Error al inicializar OIDC:', err);
+  });
