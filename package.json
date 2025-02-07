@@ -1,0 +1,30 @@
+{
+    "name": "bloque-api",
+    "version": "1.0.0",
+    "description": "Api para obtener informacion de métricas",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "nodemon src/App.js",
+      "start": "node src/App.js"
+    },
+    "keywords": [],
+    "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.18.2"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.22"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/GarooInc/Bloque-API.git"
+    },
+    "author": "Jose Santisteban",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/GarooInc/Bloque-API/issues"
+    },
+    "homepage": "https://github.com/GarooInc/Bloque-API#readme"
+  }
+  
