@@ -14,23 +14,16 @@
   ],
   "users": [
     {
-      "username": "testuser1",
+      "username": "test",
       "enabled": true,
+      "emailVerified": true,
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test@test.com",
       "credentials": [
         {
           "type": "password",
-          "value": "testpassword1",
-          "temporary": false
-        }
-      ]
-    },
-    {
-      "username": "testuser2",
-      "enabled": true,
-      "credentials": [
-        {
-          "type": "password",
-          "value": "testpassword2",
+          "value": "test",
           "temporary": false
         }
       ]

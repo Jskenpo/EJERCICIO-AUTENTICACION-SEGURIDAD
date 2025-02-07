@@ -1,0 +1,28 @@
+### GET request to retrieve public keys
+GET http://localhost:8080/realms/CybersecurityRealm/protocol/openid-connect/certs
+
+### POST request to obtain access token
+POST http://localhost:8080/realms/CybersecurityRealm/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=api-client&
+client_secret=mysecret&
+username=test&
+password=test&
+grant_type=password
+
+
+### GET request to /private endpoint with token
+GET http://localhost:3000/private
+Authorization: Bearer <token>
+
+
+
+### POST request to /data endpoint with token
+POST http://localhost:3000/data
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "key": "value"
+}
