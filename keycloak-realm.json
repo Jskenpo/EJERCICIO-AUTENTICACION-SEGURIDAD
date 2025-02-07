@@ -1,0 +1,39 @@
+{
+  "id": "CybersecurityRealm",
+  "realm": "CybersecurityRealm",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "api-client",
+      "protocol": "openid-connect",
+      "secret": "mysecret",
+      "enabled": true,
+      "publicClient": false,
+      "directAccessGrantsEnabled": true
+    }
+  ],
+  "users": [
+    {
+      "username": "testuser1",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "testpassword1",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "testuser2",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "testpassword2",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}
