@@ -37,10 +37,20 @@ curl -H "Authorization: Bearer <access_token>" http://localhost:3000/private
 ## *Public*
 <p align="center">
   <br>
-  <img src="src/assets/wb.png" alt="wb" width="600">
+  <img src="img/public.png" alt="wb" width="600">
   <br>
 </p>
 
 ## *Private*
+<p align="center">
+  <br>
+  <img src="img/private.png" alt="wb1" width="600">
+  <br>
+</p>
 
 ## *Data*
+<p align="center">
+  <br>
+  <img src="img/data.png" alt="wb2" width="600">
+  <br>
+</p>
